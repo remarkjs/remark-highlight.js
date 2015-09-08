@@ -1,0 +1,41 @@
+{
+  "name": "mdast-highlight.js",
+  "version": "0.0.0",
+  "description": "Highlight code blocks in Markdown files with highlight.js.",
+  "main": "dist/index.js",
+  "files": [
+    "LICENSE-MIT",
+    "dist"
+  ],
+  "scripts": {
+    "prepublish": "babel src --out-dir dist --ignore /__tests__/",
+    "test": "babel-tape-runner \"src/**/__tests__/*.js\" | tap-spec"
+  },
+  "keywords": [
+    "highlight",
+    "syntax",
+    "highlight.js",
+    "markdown",
+    "mdast"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "babel-tape-runner": "^1.2.0",
+    "mdast": "^1.2.0",
+    "mdast-html": "^1.1.0",
+    "tap-spec": "^4.1.0",
+    "tape": "^4.2.0"
+  },
+  "homepage": "https://github.com/ben-eb/mdast-highlight.js",
+  "author": {
+    "name": "Ben Briggs",
+    "email": "beneb.info@gmail.com",
+    "url": "http://beneb.info"
+  },
+  "repository": "ben-eb/mdast-highlight.js",
+  "dependencies": {
+    "highlight.js": "^8.8.0",
+    "unist-util-visit": "^1.0.0"
+  }
+}
