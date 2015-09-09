@@ -16,6 +16,9 @@ export default function attacher () {
         }
 
         data.htmlContent = hljs.highlightAuto(node.value, [node.lang]).value;
+        data.htmlAttributes = {
+            class: 'hljs language-' + node.lang
+        };
     }
 
     return ast => visit(ast, 'code', visitor);
