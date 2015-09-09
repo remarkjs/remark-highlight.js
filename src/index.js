@@ -17,7 +17,7 @@ export default function attacher () {
 
         data.htmlContent = hljs.highlightAuto(node.value, [node.lang]).value;
         data.htmlAttributes = {
-            class: 'hljs'
+            class: 'hljs language-' + node.lang
         };
     }
 
