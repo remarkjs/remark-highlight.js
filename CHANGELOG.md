@@ -1,8 +1,8 @@
 # 2.0.0
 
 * Update babel.
-* Update highlights.js
-* Renamed from mdast-highlights.js without any API changes.
+* Update highlight.js
+* Renamed from mdast-highlight.js without any API changes.
 
 # 1.2.0
 
