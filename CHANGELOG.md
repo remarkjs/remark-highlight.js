@@ -1,3 +1,9 @@
+# 2.0.0
+
+* Update babel.
+* Update highlights.js
+* Renamed from mdast-highlights.js without any API changes.
+
 # 1.2.0
 
 * The module will now add classes to a node's existing class attribute, instead

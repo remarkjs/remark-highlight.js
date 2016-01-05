@@ -1,5 +1,3 @@
-'use strict';
-
 import hljs from 'highlight.js';
 import visit from 'unist-util-visit';
 
@@ -18,9 +16,8 @@ export default function attacher () {
         data.htmlContent = hljs.highlightAuto(node.value, [node.lang]).value;
         data.htmlAttributes = data.htmlAttributes || {};
         data.htmlAttributes.class = [
-            data.htmlAttributes.class,
             'hljs',
-            'language-' + node.lang
+            data.htmlAttributes.class
         ].filter(Boolean).join(' ');
     }
 
