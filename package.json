@@ -1,5 +1,5 @@
 {
-  "name": "mdast-highlight.js",
+  "name": "remark-highlight.js",
   "version": "1.2.0",
   "description": "Highlight code blocks in Markdown files with highlight.js.",
   "main": "dist/index.js",
@@ -16,24 +16,24 @@
     "syntax",
     "highlight.js",
     "markdown",
-    "mdast"
+    "remark"
   ],
   "license": "MIT",
   "devDependencies": {
     "babel": "^5.8.23",
     "babel-tape-runner": "^1.2.0",
-    "mdast": "^1.2.0",
-    "mdast-html": "^1.1.0",
+    "remark": "^3.0.0",
+    "remark-html": "^2.0.0",
     "tap-spec": "^4.1.0",
     "tape": "^4.2.0"
   },
-  "homepage": "https://github.com/ben-eb/mdast-highlight.js",
+  "homepage": "https://github.com/ben-eb/remark-highlight.js",
   "author": {
     "name": "Ben Briggs",
     "email": "beneb.info@gmail.com",
     "url": "http://beneb.info"
   },
-  "repository": "ben-eb/mdast-highlight.js",
+  "repository": "ben-eb/remark-highlight.js",
   "dependencies": {
     "highlight.js": "^8.8.0",
     "unist-util-visit": "^1.0.0"
