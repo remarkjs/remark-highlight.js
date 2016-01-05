@@ -1,6 +1,6 @@
 {
   "name": "remark-highlight.js",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "Highlight code blocks in Markdown files with highlight.js.",
   "main": "dist/index.js",
   "files": [
