@@ -1,6 +1,4 @@
-'use strict';
-
-import test from 'tape';
+import test from 'ava';
 import hljs from '../';
 import remark from 'remark';
 import html from 'remark-html';
@@ -13,16 +11,16 @@ test('should highlight css & js', t => {
     t.plan(1);
 
     let result = remark.use([ html, hljs ]).process(base('input.md'));
-    t.equal(result, base('output.html'));
+    t.same(result, base('output.html'));
 });
 
 test('should not modify existing htmlAttributes and classes', t => {
     t.plan(2);
 
-    let ast = remark.parse('```lang\n```', { position: false });
+    let ast = remark.parse('```lang\n```', {position: false});
     ast = remark()
-        .use(() => ast => {
-            ast.children[0].data = {
+        .use(() => tree => {
+            tree.children[0].data = {
                 htmlAttributes: {
                     'data-foo': 'bar',
                     class: 'quux'
@@ -32,6 +30,6 @@ test('should not modify existing htmlAttributes and classes', t => {
         .use(hljs)
         .run(ast);
 
-    t.equal(ast.children[0].data.htmlAttributes['data-foo'], 'bar');
-    t.true(ast.children[0].data.htmlAttributes.class.indexOf('quux') >= 0);
+    t.same(ast.children[0].data.htmlAttributes['data-foo'], 'bar');
+    t.same(ast.children[0].data.htmlAttributes.class.indexOf('quux') >= 0, true);
 });
