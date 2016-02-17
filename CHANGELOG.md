@@ -1,3 +1,7 @@
+# 3.0.0
+
+* Updated for remark 4.x.
+
 # 2.0.0
 
 * Update babel.
