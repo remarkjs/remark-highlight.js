@@ -8,15 +8,11 @@ import {join} from 'path';
 let base = file => read(join(__dirname, 'fixtures', file), 'utf-8');
 
 test('should highlight css & js', t => {
-    t.plan(1);
-
     let result = remark.use([ html, hljs ]).process(base('input.md'));
     t.same(result, base('output.html'));
 });
 
 test('should not modify existing htmlAttributes and classes', t => {
-    t.plan(2);
-
     let ast = remark.parse('```lang\n```', {position: false});
     ast = remark()
         .use(() => tree => {
