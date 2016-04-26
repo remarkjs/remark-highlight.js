@@ -2,6 +2,7 @@
 
 > Highlight code blocks in Markdown files with [highlight.js][highlightjs].
 
+
 ## Install
 
 With [npm](https://npmjs.org/package/remark-highlight.js) do:
@@ -9,6 +10,7 @@ With [npm](https://npmjs.org/package/remark-highlight.js) do:
 ```
 npm install remark-highlight.js --save
 ```
+
 
 ## Example
 
@@ -26,10 +28,38 @@ console.log(result);
 //=> Compiled HTML with highlighted CSS!
 ```
 
+
+## API
+
+### remark.use(hljs, [options])
+
+#### options
+
+For a list of languages that you can pass to these options, see the
+[highlight.js documentation](http://highlightjs.readthedocs.org/en/latest/css-classes-reference.html#language-names-and-aliases).
+
+##### include
+
+Type: `array`  
+Default: `undefined`
+
+If this option is defined, this plugin will only highlight languages that are
+*included* in this array.
+
+##### exclude
+
+Type: `array`  
+Default: `undefined`
+
+If this option is defined, this plugin will only highlight languages that are
+*excluded* from this array.
+
+
 ## Contributing
 
 Pull requests are welcome. If you add functionality, then please add unit tests
 to cover it.
+
 
 ## License
 
