@@ -1,3 +1,8 @@
+# 3.1.0
+
+* Added `include` and `exclude` options so that it is easy to pair this module
+  with another highlighter (such as remark-midas).
+
 # 3.0.0
 
 * Updated for remark 4.x.
