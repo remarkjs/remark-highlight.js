@@ -1,3 +1,7 @@
+# 3.1.1
+
+* Upgraded to remark 5.x, this module will work the same using either version.
+
 # 3.1.0
 
 * Added `include` and `exclude` options so that it is easy to pair this module
