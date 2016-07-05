@@ -29,7 +29,7 @@
     "babel-preset-es2015-loose": "^7.0.0",
     "babel-preset-stage-0": "^6.3.13",
     "del-cli": "^0.2.0",
-    "eslint": "^2.1.0",
+    "eslint": "^3.0.1",
     "eslint-config-cssnano": "^2.0.0",
     "remark": "^5.0.0",
     "remark-html": "^3.0.0"
