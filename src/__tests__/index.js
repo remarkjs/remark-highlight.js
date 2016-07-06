@@ -1,9 +1,9 @@
-import test from 'ava';
-import hljs from '../';
-import remark from 'remark';
-import html from 'remark-html';
 import {readFileSync as read} from 'fs';
 import {join} from 'path';
+import test from 'ava';
+import remark from 'remark';
+import html from 'remark-html';
+import hljs from '../';
 
 const base = file => read(join(__dirname, 'fixtures', file), 'utf-8');
 
@@ -31,8 +31,8 @@ test('should not modify existing htmlAttributes and classes', t => {
             tree.children[0].data = {
                 htmlAttributes: {
                     'data-foo': 'bar',
-                    class: 'quux'
-                }
+                    class: 'quux',
+                },
             };
         })
         .use(hljs)

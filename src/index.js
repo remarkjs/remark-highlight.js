@@ -22,7 +22,7 @@ export default function attacher (remark, {include, exclude} = {}) {
         data.htmlAttributes = data.htmlAttributes || {};
         data.htmlAttributes.class = [
             'hljs',
-            data.htmlAttributes.class
+            data.htmlAttributes.class,
         ].filter(Boolean).join(' ');
     }
 
