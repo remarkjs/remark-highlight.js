@@ -36,7 +36,7 @@
     "eslint-plugin-babel": "^3.3.0",
     "eslint-plugin-import": "^1.10.2",
     "remark": "^5.0.0",
-    "remark-html": "^3.0.0"
+    "remark-html": "^5.0.0"
   },
   "homepage": "https://github.com/ben-eb/remark-highlight.js",
   "author": {
