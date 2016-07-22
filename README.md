@@ -2,6 +2,9 @@
 
 > Highlight code blocks in Markdown files with [highlight.js][highlightjs].
 
+Note that since 4.x, the code is highlighted with [lowlight](https://github.com/wooorm/lowlight)
+which is a virtual DOM implementation of highlight.js.
+
 
 ## Install
 

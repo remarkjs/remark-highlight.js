@@ -1,4 +1,4 @@
-import hljs from 'highlight.js';
+import low from 'lowlight';
 import visit from 'unist-util-visit';
 
 export default function attacher (remark, {include, exclude} = {}) {
@@ -18,12 +18,13 @@ export default function attacher (remark, {include, exclude} = {}) {
             node.data = data = {};
         }
 
-        data.htmlContent = hljs.highlightAuto(node.value, [lang]).value;
-        data.htmlAttributes = data.htmlAttributes || {};
-        data.htmlAttributes.class = [
+        data.hChildren = low.highlight(lang, node.value).value;
+        data.hProperties = data.hProperties || {};
+        data.hProperties.className = [
             'hljs',
-            data.htmlAttributes.class,
-        ].filter(Boolean).join(' ');
+            ...data.hProperties.className || [],
+            `language-${lang}`,
+        ];
     }
 
     return ast => visit(ast, 'code', visitor);

@@ -25,19 +25,19 @@ test('should not highlight when the language is not specified (exclude)', t => {
 });
 
 test('should not modify existing htmlAttributes and classes', t => {
-    let ast = remark().parse('```lang\n```', {position: false});
+    let ast = remark().parse('```css\n```', {position: false});
     ast = remark()
         .use(() => tree => {
             tree.children[0].data = {
-                htmlAttributes: {
+                hProperties: {
                     'data-foo': 'bar',
-                    class: 'quux',
+                    className: ['quux'],
                 },
             };
         })
         .use(hljs)
         .run(ast);
 
-    t.deepEqual(ast.children[0].data.htmlAttributes['data-foo'], 'bar');
-    t.deepEqual(ast.children[0].data.htmlAttributes.class.indexOf('quux') >= 0, true);
+    t.deepEqual(ast.children[0].data.hProperties['data-foo'], 'bar');
+    t.deepEqual(ast.children[0].data.hProperties.className.indexOf('quux') >= 0, true);
 });

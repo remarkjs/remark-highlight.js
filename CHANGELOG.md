@@ -1,3 +1,8 @@
+# 4.0.0
+
+* Switched from highlight.js to lowlight (virtual implementation of hljs).
+* Upgraded to remark-html 5.x.
+
 # 3.1.1
 
 * Upgraded to remark 5.x, this module will work the same using either version.

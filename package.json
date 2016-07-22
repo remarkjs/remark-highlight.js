@@ -18,7 +18,8 @@
     "syntax",
     "highlight.js",
     "markdown",
-    "remark"
+    "remark",
+    "lowlight"
   ],
   "license": "MIT",
   "devDependencies": {
@@ -36,7 +37,7 @@
     "eslint-plugin-babel": "^3.3.0",
     "eslint-plugin-import": "^1.10.2",
     "remark": "^5.0.0",
-    "remark-html": "^3.0.0"
+    "remark-html": "^5.0.0"
   },
   "homepage": "https://github.com/ben-eb/remark-highlight.js",
   "author": {
@@ -47,6 +48,7 @@
   "repository": "ben-eb/remark-highlight.js",
   "dependencies": {
     "highlight.js": "^9.5.0",
+    "lowlight": "^1.2.0",
     "unist-util-visit": "^1.0.0"
   },
   "eslintConfig": {
