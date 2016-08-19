@@ -1,3 +1,8 @@
+# 4.0.1
+
+* remark-highlight.js will now not throw on unrecognised languages, such
+  as console.
+
 # 4.0.0
 
 * Switched from highlight.js to lowlight (virtual implementation of hljs).
