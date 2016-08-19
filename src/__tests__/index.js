@@ -41,3 +41,9 @@ test('should not modify existing htmlAttributes and classes', t => {
     t.deepEqual(ast.children[0].data.hProperties['data-foo'], 'bar');
     t.deepEqual(ast.children[0].data.hProperties.className.indexOf('quux') >= 0, true);
 });
+
+test('should not throw on console syntax', t => {
+    const input = '# Hello!\n\n```console\n$ webpack\n```';
+    const {contents} = remark().use(html).use(hljs).process(input);
+    t.deepEqual(contents, '<h1>Hello!</h1>\n<pre><code class=\"hljs language-console\"><span class=\"hljs-variable\">$ </span>webpack</code></pre>\n');
+});

@@ -18,7 +18,12 @@ export default function attacher (remark, {include, exclude} = {}) {
             node.data = data = {};
         }
 
-        data.hChildren = low.highlight(lang, node.value).value;
+        try {
+            data.hChildren = low.highlight(lang, node.value).value;
+        } catch (err) {
+            data.hChildren = low.highlightAuto(node.value).value;
+        }
+
         data.hProperties = data.hProperties || {};
         data.hProperties.className = [
             'hljs',
