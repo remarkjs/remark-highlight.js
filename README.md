@@ -25,7 +25,7 @@ var html  = require('remark-html');
 var hljs  = require('remark-highlight.js');
 
 var markdown = '```css\nh1 {\n    color: red;\n}\n```\n';
-var result = remark().use([ html, hljs ]).process(markdown);
+var result = remark().use([ html, hljs ]).processSync(markdown);
 console.log(result);
 
 //=> Compiled HTML with highlighted CSS!

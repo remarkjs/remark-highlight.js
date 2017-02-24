@@ -1,7 +1,7 @@
 import low from 'lowlight';
 import visit from 'unist-util-visit';
 
-export default function attacher (remark, {include, exclude} = {}) {
+export default function attacher ({include, exclude} = {}) {
     function visitor (node) {
         const {lang} = node;
         if (
