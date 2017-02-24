@@ -23,7 +23,7 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "ava": "^0.17.0",
+    "ava": "^0.18.0",
     "babel-cli": "^6.4.0",
     "babel-core": "^6.4.0",
     "babel-plugin-add-module-exports": "^0.2.1",
@@ -36,8 +36,8 @@
     "eslint-config-cssnano": "^3.0.0",
     "eslint-plugin-babel": "^3.3.0",
     "eslint-plugin-import": "^2.0.1",
-    "remark": "^6.0.0",
-    "remark-html": "^5.0.0"
+    "remark": "^7.0.0",
+    "remark-html": "^6.0.0"
   },
   "homepage": "https://github.com/ben-eb/remark-highlight.js",
   "author": {
