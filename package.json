@@ -46,7 +46,6 @@
   },
   "repository": "ben-eb/remark-highlight.js",
   "dependencies": {
-    "highlight.js": "^9.5.0",
     "lowlight": "^1.2.0",
     "unist-util-visit": "^1.0.0"
   },
