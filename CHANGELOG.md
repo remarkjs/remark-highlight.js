@@ -1,3 +1,9 @@
+# 5.0.0
+
+* (Breaking) Drops support for Node 0.12.
+* Updated for remark 7.x (thanks to @wooorm).
+* Removes unused highlight.js dependency.
+
 # 4.0.1
 
 * remark-highlight.js will now not throw on unrecognised languages, such
