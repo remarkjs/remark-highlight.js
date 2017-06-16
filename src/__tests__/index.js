@@ -45,5 +45,5 @@ test('should not modify existing htmlAttributes and classes', t => {
 test('should not throw on console syntax', t => {
     const input = '# Hello!\n\n```console\n$ webpack\n```';
     const {contents} = remark().use(html).use(hljs).processSync(input);
-    t.deepEqual(contents, '<h1>Hello!</h1>\n<pre><code class=\"hljs language-console\"><span class=\"hljs-variable\">$ </span>webpack</code></pre>\n');
+    t.deepEqual(contents, '<h1>Hello!</h1>\n<pre><code class=\"hljs language-console\"><span class=\"hljs-meta\">$</span><span class=\"bash\"> webpack</span></code></pre>\n');
 });
