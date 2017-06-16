@@ -5,6 +5,10 @@
 Note that since 4.x, the code is highlighted with [lowlight](https://github.com/wooorm/lowlight)
 which is a virtual DOM implementation of highlight.js.
 
+This package integrates with [remark-html][html]. It may be better to work with
+[rehype], which is specifically made for HTML, and to use
+[rehype-highlight] instead of this package.
+
 
 ## Install
 
@@ -100,3 +104,5 @@ MIT © [Ben Briggs](http://beneb.info)
 [html]:        https://github.com/wooorm/remark-html
 [remark]:      https://github.com/wooorm/remark
 [highlightjs]: https://github.com/isagalaev/highlight.js
+[rehype]:      https://github.com/wooorm/rehype
+[rehype-highlight]: https://github.com/wooorm/rehype-highlight
