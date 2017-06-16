@@ -19,18 +19,44 @@ npm install remark-highlight.js --save
 
 remark-highlight.js is designed to work with [remark-html][html]:
 
-```js
-var remark = require('remark');
-var html  = require('remark-html');
-var hljs  = require('remark-highlight.js');
+Say `example.md` looks as follows:
 
-var markdown = '```css\nh1 {\n    color: red;\n}\n```\n';
-var result = remark().use([ html, hljs ]).processSync(markdown);
-console.log(result);
-
-//=> Compiled HTML with highlighted CSS!
+```markdown
+~~~css
+h1 {
+  color: red;
+}
+~~~
 ```
 
+...and `example.js` like this:
+
+```javascript
+var vfile = require('to-vfile');
+var report = require('vfile-reporter');
+var unified = require('unified');
+var markdown = require('remark-parse');
+var html = require('remark-html');
+var highlight = require('rehype-highlight');
+
+unified()
+  .use(markdown)
+  .use(highlight)
+  .use(html)
+  .process(vfile.readSync('example.md'), function (err, file) {
+    console.error(report(err || file));
+    console.log(String(file));
+  });
+```
+
+Now, running `node example` yields:
+
+```html
+example.md: no issues found
+<pre><code class="hljs language-css"><span class="hljs-selector-tag">h1</span> {
+  <span class="hljs-attribute">color</span>: red;
+}</code></pre>
+```
 
 ## API
 
