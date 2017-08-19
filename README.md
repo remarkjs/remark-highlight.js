@@ -41,7 +41,7 @@ var report = require('vfile-reporter');
 var unified = require('unified');
 var markdown = require('remark-parse');
 var html = require('remark-html');
-var highlight = require('rehype-highlight');
+var highlight = require('remark-highlight.js');
 
 unified()
   .use(markdown)
