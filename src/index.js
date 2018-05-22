@@ -29,7 +29,7 @@ export default function attacher ({include, exclude} = {}) {
             'hljs',
             ...data.hProperties.className || [],
             `language-${lang}`,
-        ];
+        ].join(' ')
     }
 
     return ast => visit(ast, 'code', visitor);
