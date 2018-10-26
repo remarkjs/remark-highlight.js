@@ -2,16 +2,7 @@
   "name": "remark-highlight.js",
   "version": "5.0.0",
   "description": "Highlight code blocks in Markdown files with highlight.js.",
-  "main": "dist/index.js",
-  "files": [
-    "LICENSE-MIT",
-    "dist"
-  ],
-  "scripts": {
-    "pretest": "eslint src",
-    "prepublish": "del-cli dist && babel src --out-dir dist --ignore /__tests__/",
-    "test": "ava src/__tests__"
-  },
+  "license": "MIT",
   "keywords": [
     "highlight",
     "syntax",
@@ -20,39 +11,80 @@
     "remark",
     "lowlight"
   ],
-  "license": "MIT",
-  "devDependencies": {
-    "ava": "^0.19.0",
-    "babel-cli": "^6.4.0",
-    "babel-core": "^6.4.0",
-    "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-preset-es2015": "^6.3.13",
-    "babel-preset-es2015-loose": "^7.0.0",
-    "babel-preset-stage-0": "^6.3.13",
-    "babel-register": "^6.9.0",
-    "del-cli": "^1.0.0",
-    "eslint": "^3.0.0",
-    "eslint-config-cssnano": "^3.0.0",
-    "eslint-plugin-babel": "^3.3.0",
-    "eslint-plugin-import": "^2.0.1",
-    "remark": "^7.0.0",
-    "remark-html": "^6.0.0"
-  },
-  "homepage": "https://github.com/ben-eb/remark-highlight.js",
-  "author": {
-    "name": "Ben Briggs",
-    "email": "beneb.info@gmail.com",
-    "url": "http://beneb.info"
-  },
-  "repository": "ben-eb/remark-highlight.js",
+  "repository": "remarkjs/remark-highlight.js",
+  "bugs": "https://github.com/remarkjs/remark-highlight.js/issues",
+  "author": "Ben Briggs <beneb.info@gmail.com> (http://beneb.info)",
+  "contributors": [
+    "Ben Briggs <beneb.info@gmail.com> (http://beneb.info)",
+    "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)"
+  ],
+  "main": "dist/index.js",
+  "module": "src/index.js",
+  "files": [
+    "dist",
+    "src"
+  ],
   "dependencies": {
     "lowlight": "^1.2.0",
     "unist-util-visit": "^1.0.0"
   },
-  "eslintConfig": {
-    "extends": "cssnano"
+  "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/register": "^7.0.0",
+    "ava": "1.0.0-rc.1",
+    "babel-plugin-add-module-exports": "^1.0.0",
+    "nyc": "^13.1.0",
+    "prettier": "^1.14.3",
+    "remark": "^10.0.0",
+    "remark-cli": "^6.0.0",
+    "remark-html": "^8.0.0",
+    "remark-preset-wooorm": "^4.0.0",
+    "xo": "^0.23.0"
+  },
+  "scripts": {
+    "prepublishOnly": "npm run build",
+    "build": "babel src --out-dir dist --ignore src/**/__tests__",
+    "format": "remark . -qfo && prettier \"**/*.js\" --write && xo --fix",
+    "test-api": "ava",
+    "test-coverage": "nyc --reporter lcov ava",
+    "test": "npm run build && npm run format && npm run test-coverage"
+  },
+  "browserslist": "> 2.5%, node 6",
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ],
+    "plugins": [
+      "add-module-exports"
+    ]
+  },
+  "nyc": {
+    "check-coverage": true,
+    "lines": 100,
+    "functions": 100,
+    "branches": 100
   },
   "ava": {
-    "require": "babel-register"
+    "require": [
+      "@babel/register"
+    ]
+  },
+  "prettier": {
+    "tabWidth": 2,
+    "useTabs": false,
+    "singleQuote": true,
+    "bracketSpacing": false,
+    "semi": false,
+    "trailingComma": "none"
+  },
+  "xo": {
+    "prettier": true
+  },
+  "remarkConfig": {
+    "plugins": [
+      "preset-wooorm"
+    ]
   }
 }

@@ -1,36 +1,34 @@
-import low from 'lowlight';
-import visit from 'unist-util-visit';
+import low from 'lowlight'
+import visit from 'unist-util-visit'
 
-export default function attacher ({include, exclude} = {}) {
-    function visitor (node) {
-        const {lang} = node;
-        if (
-            !lang ||
-            include && !~include.indexOf(lang) ||
-            exclude && ~exclude.indexOf(lang)
-        ) {
-            return;
-        }
+export default function attacher({include, exclude} = {}) {
+  return ast => visit(ast, 'code', visitor)
 
-        let {data} = node;
+  function visitor(node) {
+    let {lang, data} = node
 
-        if (!data) {
-            node.data = data = {};
-        }
-
-        try {
-            data.hChildren = low.highlight(lang, node.value).value;
-        } catch (err) {
-            data.hChildren = low.highlightAuto(node.value).value;
-        }
-
-        data.hProperties = data.hProperties || {};
-        data.hProperties.className = [
-            'hljs',
-            ...data.hProperties.className || [],
-            `language-${lang}`,
-        ];
+    if (
+      !lang ||
+      (include && include.indexOf(lang) === -1) ||
+      (exclude && exclude.indexOf(lang) !== -1)
+    ) {
+      return
     }
 
-    return ast => visit(ast, 'code', visitor);
+    if (!data) {
+      data = {}
+      node.data = data
+    }
+
+    if (!data.hProperties) {
+      data.hProperties = {}
+    }
+
+    data.hChildren = low.highlight(lang, node.value).value
+    data.hProperties.className = [
+      'hljs',
+      ...(data.hProperties.className || []),
+      'language-' + lang
+    ]
+  }
 }
