@@ -1,7 +1,5 @@
-sudo: false
-
 language: node_js
-matrix:
-  include:
-    - node_js: '8'
-    - node_js: '4'
+node_js:
+- lts/boron
+- node
+after_script: bash <(curl -s https://codecov.io/bash)
