@@ -1,6 +1,6 @@
 {
   "name": "remark-highlight.js",
-  "version": "5.0.0",
+  "version": "5.1.0",
   "description": "Highlight code blocks in Markdown files with highlight.js.",
   "license": "MIT",
   "keywords": [
