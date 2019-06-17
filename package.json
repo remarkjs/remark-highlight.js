@@ -27,7 +27,7 @@
   "module": "src/index.js",
   "files": [
     "dist",
-    "src"
+    "src/index.js"
   ],
   "dependencies": {
     "lowlight": "^1.2.0",
