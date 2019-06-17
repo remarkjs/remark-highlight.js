@@ -1,14 +1,17 @@
 {
   "name": "remark-highlight.js",
   "version": "5.1.0",
-  "description": "Highlight code blocks in Markdown files with highlight.js.",
+  "description": "remark plugin to highlight code blocks with highlight.js",
   "license": "MIT",
   "keywords": [
+    "unified",
+    "remark",
+    "plugin",
+    "mdast",
+    "markdown",
     "highlight",
     "syntax",
     "highlight.js",
-    "markdown",
-    "remark",
     "lowlight"
   ],
   "repository": "remarkjs/remark-highlight.js",
@@ -16,7 +19,9 @@
   "author": "Ben Briggs <beneb.info@gmail.com> (http://beneb.info)",
   "contributors": [
     "Ben Briggs <beneb.info@gmail.com> (http://beneb.info)",
-    "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)"
+    "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)",
+    "Eugene Sharygin <eush77@gmail.com>",
+    "Oleg Proskurin <regx@usul.su>"
   ],
   "main": "dist/index.js",
   "module": "src/index.js",
