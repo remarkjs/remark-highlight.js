@@ -3,28 +3,30 @@
 [![Build][build-badge]][build]
 [![Coverage][coverage-badge]][coverage]
 [![Downloads][downloads-badge]][downloads]
-[![Chat][chat-badge]][chat]
+[![Size][size-badge]][size]
 [![Sponsors][sponsors-badge]][collective]
 [![Backers][backers-badge]][collective]
+[![Chat][chat-badge]][chat]
 
-Highlight code blocks in Markdown files with [**remark**][remark] and
-[**lowlight**][lowlight].
+[**remark**][remark] plugin to highlight code blocks with [highlight.js][hljs]
+(via [**lowlight**][lowlight]).
 
-This package integrates with [remark-html][].
-It may be better to work with [rehype][], which is specifically made for HTML,
-and to use [rehype-highlight][] instead of this package.
+> This package integrates with [`remark-html`][remark-html].
+> It may be better to work with [**rehype**][rehype], which is specifically made
+> for HTML, and to use [`rehype-highlight`][rehype-highlight] instead of this
+> package.
 
-## Installation
+## Install
 
 [npm][]:
 
-```bash
+```sh
 npm install remark-highlight.js
 ```
 
-## Example
+## Use
 
-Say we have the following markdown file, `example.md`:
+Say we have the following Markdown file, `example.md`:
 
 ```markdown
 ~~~css
@@ -36,7 +38,7 @@ h1 {
 
 And our script, `example.js`, looks as follows:
 
-```javascript
+```js
 const vfile = require('to-vfile')
 const report = require('vfile-reporter')
 const unified = require('unified')
@@ -65,30 +67,48 @@ example.md: no issues found
 
 ## API
 
-### `remark.use(highlight[, options])`
+### `remark().use(highlight[, options])`
 
-Highlight code blocks in markdown.
+highlight code blocks with [highlight.js][hljs] (via
+[**lowlight**][lowlight]).
 
 For a list of languages that you can pass to these options, see the
 [highlight.js documentation][list-of-languages].
 
-#### `options.include`
+##### `options`
+
+###### `options.include`
 
 If this option is defined (`Array`), this plugin will only highlight languages
 that *are* in this list.
 
-#### `options.exclude`
+###### `options.exclude`
 
 If this option is defined (`Array`), this plugin will only highlight languages
 that *are not* in this list.
 
+## Related
+
+*   [`remark-midas`](https://github.com/remarkjs/remark-midas)
+    — Highlight CSS code blocks with midas (rehype compatible)
+*   [`remark-tree-sitter`](https://github.com/samlanning/remark-tree-sitter)
+    — Highlight code with tree-sitter (rehype compatible)
+*   [`rehype-highlight`][rehype-highlight]
+    — [rehype][] plugin to highlight code (via lowlight)
+*   [`rehype-prism`](https://github.com/mapbox/rehype-prism)
+    — [rehype][] plugin to highlight code (via refractor)
+*   [`rehype-shiki`](https://github.com/rsclarke/rehype-shiki)
+    — [rehype][] plugin to highlight code with shiki
+
 ## Contribute
 
-See [`contributing.md` in `remarkjs/remark`][contributing] for ways to get
-started.
+See [`contributing.md`][contributing] in [`remarkjs/.github`][health] for ways
+to get started.
+See [`support.md`][support] for ways to get help.
 
-This organisation has a [Code of Conduct][coc].  By interacting with this
-repository, organisation, or community you agree to abide by its terms.
+This project has a [Code of Conduct][coc].
+By interacting with this repository, organisation, or community you agree to
+abide by its terms.
 
 ## License
 
@@ -96,7 +116,7 @@ repository, organisation, or community you agree to abide by its terms.
 
 <!-- Definitions -->
 
-[build-badge]: https://img.shields.io/travis/remarkjs/remark-highlight.js.svg
+[build-badge]: https://img.shields.io/travis/remarkjs/remark-highlight.js/master.svg
 
 [build]: https://travis-ci.org/remarkjs/remark-highlight.js
 
@@ -108,9 +128,9 @@ repository, organisation, or community you agree to abide by its terms.
 
 [downloads]: https://www.npmjs.com/package/remark-highlight.js
 
-[chat-badge]: https://img.shields.io/badge/join%20the%20community-on%20spectrum-7b16ff.svg
+[size-badge]: https://img.shields.io/bundlephobia/minzip/remark-highlight.js.svg
 
-[chat]: https://spectrum.chat/unified/remark
+[size]: https://bundlephobia.com/result?p=remark-highlight.js
 
 [sponsors-badge]: https://opencollective.com/unified/sponsors/badge.svg
 
@@ -118,24 +138,34 @@ repository, organisation, or community you agree to abide by its terms.
 
 [collective]: https://opencollective.com/unified
 
-[license]: license
+[chat-badge]: https://img.shields.io/badge/join%20the%20community-on%20spectrum-7b16ff.svg
 
-[author]: http://beneb.info
+[chat]: https://spectrum.chat/unified/remark
 
 [npm]: https://docs.npmjs.com/cli/install
 
-[contributing]: https://github.com/remarkjs/remark/blob/master/contributing.md
+[health]: https://github.com/remarkjs/.github
 
-[coc]: https://github.com/remarkjs/remark/blob/master/code-of-conduct.md
+[contributing]: https://github.com/remarkjs/.github/blob/master/contributing.md
+
+[support]: https://github.com/remarkjs/.github/blob/master/support.md
+
+[coc]: https://github.com/remarkjs/.github/blob/master/code-of-conduct.md
+
+[license]: license
+
+[author]: http://beneb.info
 
 [remark]: https://github.com/remarkjs/remark
 
 [remark-html]: https://github.com/remarkjs/remark-html
 
-[lowlight]: https://github.com/wooorm/lowlight
-
 [rehype]: https://github.com/rehypejs/rehype
 
 [rehype-highlight]: https://github.com/rehypejs/rehype-highlight
+
+[lowlight]: https://github.com/wooorm/lowlight
+
+[hljs]: https://github.com/highlightjs/highlight.js
 
 [list-of-languages]: https://github.com/highlightjs/highlight.js/blob/master/docs/css-classes-reference.rst#language-names-and-aliases
