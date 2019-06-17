@@ -75,12 +75,12 @@ For a list of languages that you can pass to these options, see the
 #### `options.include`
 
 If this option is defined (`Array`), this plugin will only highlight languages
-that _are_ in this list.
+that *are* in this list.
 
 #### `options.exclude`
 
 If this option is defined (`Array`), this plugin will only highlight languages
-that _are not_ in this list.
+that *are not* in this list.
 
 ## Contribute
 
