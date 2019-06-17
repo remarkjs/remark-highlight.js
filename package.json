@@ -40,21 +40,26 @@
     "@babel/register": "^7.0.0",
     "ava": "2.0.0",
     "babel-plugin-add-module-exports": "^1.0.0",
+    "browserify": "^16.0.0",
     "nyc": "^14.0.0",
     "prettier": "^1.0.0",
     "remark": "^10.0.0",
     "remark-cli": "^6.0.0",
     "remark-html": "^9.0.0",
     "remark-preset-wooorm": "^5.0.0",
+    "tinyify": "^2.0.0",
     "xo": "^0.24.0"
   },
   "scripts": {
-    "prepublishOnly": "npm run build",
-    "build": "babel src --out-dir dist --ignore src/**/__tests__",
+    "prepublishOnly": "npm run compile",
     "format": "remark . -qfo && prettier \"**/*.js\" --write && xo --fix",
+    "compile": "babel src --out-dir dist --ignore src/**/__tests__",
+    "build-bundle": "browserify . -s remarkHighlight > remark-highlight.js",
+    "build-mangle": "browserify . -s remarkHighlight -p tinyify > remark-highlight.min.js",
+    "bundle": "npm run build-bundle && npm run build-mangle",
     "test-api": "ava",
     "test-coverage": "nyc --reporter lcov ava",
-    "test": "npm run build && npm run format && npm run test-coverage"
+    "test": "npm run format && npm run compile && npm run bundle && npm run test-coverage"
   },
   "browserslist": "> 2.5%, node 6",
   "babel": {
