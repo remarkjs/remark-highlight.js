@@ -87,6 +87,12 @@ that *are* in this list.
 If this option is defined (`Array`), this plugin will only highlight languages
 that *are not* in this list.
 
+## Security
+
+Use of `remark-highlight.js` *should* be safe to use as `lowlight` *should* be
+safe to use.
+When in doubt, use [`rehype-sanitize`][sanitize].
+
 ## Related
 
 *   [`remark-midas`](https://github.com/remarkjs/remark-midas)
@@ -173,3 +179,5 @@ abide by its terms.
 [hljs]: https://github.com/highlightjs/highlight.js
 
 [list-of-languages]: https://github.com/highlightjs/highlight.js/blob/master/docs/css-classes-reference.rst#language-names-and-aliases
+
+[sanitize]: https://github.com/rehypejs/rehype-sanitize
