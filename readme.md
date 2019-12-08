@@ -89,7 +89,8 @@ that *are not* in this list.
 
 ###### `options.prefix`
 
-If this option is defined (`string`), this plugin will use this prefix for classes instead of `hljs-`.
+If this option is defined (`string`), this plugin will use this prefix
+for classes instead of `hljs-`.
 
 ## Security
 
