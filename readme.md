@@ -87,6 +87,11 @@ that *are* in this list.
 If this option is defined (`Array`), this plugin will only highlight languages
 that *are not* in this list.
 
+###### `options.prefix`
+
+If this option is defined (`string`), this plugin will use this prefix
+for classes instead of `hljs-`.
+
 ## Security
 
 Use of `remark-highlight.js` *should* be safe to use as `lowlight` *should* be

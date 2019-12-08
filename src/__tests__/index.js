@@ -51,6 +51,17 @@ test('should not highlight when the language is not specified (exclude)', t => {
   )
 })
 
+test('should allow to change prefix', t => {
+  t.truthy(
+    remark()
+      .use(html)
+      .use(hljs, {prefix: 'code_'})
+      .processSync('# Hello!\n\n```css\nh1{}\n```')
+      .toString()
+      .includes('class="code_selector-tag')
+  )
+})
+
 test('should not modify existing hProperties and classes', t => {
   const tree = remark()
     .use(() => tree => {
