@@ -48,7 +48,7 @@
     "remark-html": "^10.0.0",
     "remark-preset-wooorm": "^6.0.0",
     "tinyify": "^2.0.0",
-    "xo": "^0.24.0"
+    "xo": "^0.25.0"
   },
   "scripts": {
     "prepublishOnly": "npm run compile",

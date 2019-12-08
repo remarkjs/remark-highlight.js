@@ -41,7 +41,7 @@ test('should not highlight when the language is not specified (include)', t => {
 })
 
 test('should not highlight when the language is not specified (exclude)', t => {
-  t.deepEqual(
+  t.is(
     remark()
       .use(html)
       .use(hljs, {exclude: ['css']})
@@ -72,15 +72,12 @@ test('should not modify existing hProperties and classes', t => {
     .use(hljs)
     .runSync(remark().parse('```css\n```'))
 
-  t.deepEqual(tree.children[0].data.hProperties.dataFoo, 'bar')
-  t.deepEqual(
-    tree.children[0].data.hProperties.className.indexOf('quux') >= 0,
-    true
-  )
+  t.is(tree.children[0].data.hProperties.dataFoo, 'bar')
+  t.is(tree.children[0].data.hProperties.className.includes('quux'), true)
 })
 
 test('should not throw on console syntax', t => {
-  t.deepEqual(
+  t.is(
     remark()
       .use(html)
       .use(hljs)

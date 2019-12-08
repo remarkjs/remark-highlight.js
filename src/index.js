@@ -9,8 +9,8 @@ export default function attacher({include, exclude, prefix} = {}) {
 
     if (
       !lang ||
-      (include && include.indexOf(lang) === -1) ||
-      (exclude && exclude.indexOf(lang) !== -1)
+      (include && !include.includes(lang)) ||
+      (exclude && exclude.includes(lang))
     ) {
       return
     }
