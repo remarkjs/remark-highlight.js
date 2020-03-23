@@ -17,6 +17,10 @@
   ],
   "repository": "remarkjs/remark-highlight.js",
   "bugs": "https://github.com/remarkjs/remark-highlight.js/issues",
+  "funding": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/unified"
+  },
   "author": "Ben Briggs <beneb.info@gmail.com> (http://beneb.info)",
   "contributors": [
     "Ben Briggs <beneb.info@gmail.com> (http://beneb.info)",
