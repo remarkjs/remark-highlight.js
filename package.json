@@ -1,6 +1,6 @@
 {
   "name": "remark-highlight.js",
-  "version": "5.2.0",
+  "version": "6.0.0",
   "description": "remark plugin to highlight code blocks with highlight.js",
   "license": "MIT",
   "keywords": [
