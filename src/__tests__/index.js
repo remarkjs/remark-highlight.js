@@ -5,20 +5,16 @@ import remark from 'remark'
 import html from 'remark-html'
 import hljs from '..'
 
-const base = file => String(read(join(__dirname, 'fixtures', file)))
+const base = (file) => String(read(join(__dirname, 'fixtures', file)))
 
-test('should highlight css & js', t => {
+test('should highlight css & js', (t) => {
   t.is(
-    remark()
-      .use(hljs)
-      .use(html)
-      .processSync(base('input.md'))
-      .toString(),
+    remark().use(hljs).use(html).processSync(base('input.md')).toString(),
     base('output.html')
   )
 })
 
-test('should not auto highlight', t => {
+test('should not auto highlight', (t) => {
   t.is(
     remark()
       .use(html)
@@ -29,7 +25,7 @@ test('should not auto highlight', t => {
   )
 })
 
-test('should not highlight when the language is not specified (include)', t => {
+test('should not highlight when the language is not specified (include)', (t) => {
   t.is(
     remark()
       .use(html)
@@ -40,7 +36,7 @@ test('should not highlight when the language is not specified (include)', t => {
   )
 })
 
-test('should not highlight when the language is not specified (exclude)', t => {
+test('should not highlight when the language is not specified (exclude)', (t) => {
   t.is(
     remark()
       .use(html)
@@ -51,7 +47,7 @@ test('should not highlight when the language is not specified (exclude)', t => {
   )
 })
 
-test('should allow to change prefix', t => {
+test('should allow to change prefix', (t) => {
   t.truthy(
     remark()
       .use(html)
@@ -62,9 +58,9 @@ test('should allow to change prefix', t => {
   )
 })
 
-test('should not modify existing hProperties and classes', t => {
+test('should not modify existing hProperties and classes', (t) => {
   const tree = remark()
-    .use(() => tree => {
+    .use(() => (tree) => {
       tree.children[0].data = {
         hProperties: {dataFoo: 'bar', className: ['quux']}
       }
@@ -76,7 +72,7 @@ test('should not modify existing hProperties and classes', t => {
   t.is(tree.children[0].data.hProperties.className.includes('quux'), true)
 })
 
-test('should not throw on console syntax', t => {
+test('should not throw on console syntax', (t) => {
   t.is(
     remark()
       .use(html)
