@@ -57,7 +57,7 @@
   },
   "scripts": {
     "prepublishOnly": "npm run compile",
-    "format": "remark . -qfo && prettier \"**/*.js\" --write && xo --fix",
+    "format": "remark . -qfo && prettier . --write && xo --fix",
     "compile": "babel src --out-dir dist --ignore src/**/__tests__",
     "build-bundle": "browserify . -s remarkHighlight > remark-highlight.js",
     "build-mangle": "browserify . -s remarkHighlight -p tinyify > remark-highlight.min.js",
