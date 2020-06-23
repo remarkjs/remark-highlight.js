@@ -131,7 +131,7 @@ abide by its terms.
 
 <!-- Definitions -->
 
-[build-badge]: https://img.shields.io/travis/remarkjs/remark-highlight.js/master.svg
+[build-badge]: https://img.shields.io/travis/remarkjs/remark-highlight.js/main.svg
 
 [build]: https://travis-ci.org/remarkjs/remark-highlight.js
 
@@ -161,11 +161,11 @@ abide by its terms.
 
 [health]: https://github.com/remarkjs/.github
 
-[contributing]: https://github.com/remarkjs/.github/blob/master/contributing.md
+[contributing]: https://github.com/remarkjs/.github/blob/HEAD/contributing.md
 
-[support]: https://github.com/remarkjs/.github/blob/master/support.md
+[support]: https://github.com/remarkjs/.github/blob/HEAD/support.md
 
-[coc]: https://github.com/remarkjs/.github/blob/master/code-of-conduct.md
+[coc]: https://github.com/remarkjs/.github/blob/HEAD/code-of-conduct.md
 
 [license]: license
 
@@ -183,6 +183,6 @@ abide by its terms.
 
 [hljs]: https://github.com/highlightjs/highlight.js
 
-[list-of-languages]: https://github.com/highlightjs/highlight.js/blob/master/docs/css-classes-reference.rst#language-names-and-aliases
+[list-of-languages]: https://github.com/highlightjs/highlight.js/blob/HEAD/docs/css-classes-reference.rst#language-names-and-aliases
 
 [sanitize]: https://github.com/rehypejs/rehype-sanitize
