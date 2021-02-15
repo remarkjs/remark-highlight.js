@@ -1,11 +1,11 @@
 import {readFileSync as read} from 'fs'
-import {join} from 'path'
+import path from 'path'
 import test from 'ava'
 import remark from 'remark'
 import html from 'remark-html'
-import hljs from '..'
+import hljs from '../index.js'
 
-const base = (file) => String(read(join(__dirname, 'fixtures', file)))
+const base = (file) => String(read(path.join(__dirname, 'fixtures', file)))
 
 test('should highlight css & js', (t) => {
   t.is(
