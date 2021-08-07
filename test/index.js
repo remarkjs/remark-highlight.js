@@ -1,24 +1,28 @@
 import fs from 'fs'
 import path from 'path'
 import test from 'tape'
-import remark from 'remark'
-import html from 'remark-html'
-import hljs from '../index.js'
+import {remark} from 'remark'
+import remarkHtml from 'remark-html'
+import remarkHighlightjs from '../index.js'
 
 const base = (file) =>
   String(fs.readFileSync(path.join('test', 'fixtures', file)))
 
 test('remark-highlight.js', (t) => {
   t.is(
-    remark().use(hljs).use(html).processSync(base('input.md')).toString(),
+    remark()
+      .use(remarkHighlightjs)
+      .use(remarkHtml)
+      .processSync(base('input.md'))
+      .toString(),
     base('output.html'),
     'should highlight css & js'
   )
 
   t.is(
     remark()
-      .use(html)
-      .use(hljs)
+      .use(remarkHtml)
+      .use(remarkHighlightjs)
       .processSync('# Hello!\n\n```\nconsole.log(1)\n```')
       .toString(),
     '<h1>Hello!</h1>\n<pre><code>console.log(1)\n</code></pre>\n',
@@ -27,8 +31,8 @@ test('remark-highlight.js', (t) => {
 
   t.is(
     remark()
-      .use(html)
-      .use(hljs, {include: ['html']})
+      .use(remarkHtml)
+      .use(remarkHighlightjs, {include: ['html']})
       .processSync('# Hello!\n\n```css\nh1{}\n```')
       .toString(),
     '<h1>Hello!</h1>\n<pre><code class="language-css">h1{}\n</code></pre>\n',
@@ -37,8 +41,8 @@ test('remark-highlight.js', (t) => {
 
   t.is(
     remark()
-      .use(html)
-      .use(hljs, {exclude: ['css']})
+      .use(remarkHtml)
+      .use(remarkHighlightjs, {exclude: ['css']})
       .processSync('# Hello!\n\n```css\nh1{}\n```')
       .toString(),
     '<h1>Hello!</h1>\n<pre><code class="language-css">h1{}\n</code></pre>\n',
@@ -47,8 +51,8 @@ test('remark-highlight.js', (t) => {
 
   t.ok(
     remark()
-      .use(html)
-      .use(hljs, {prefix: 'code_'})
+      .use(remarkHtml)
+      .use(remarkHighlightjs, {prefix: 'code_'})
       .processSync('# Hello!\n\n```css\nh1{}\n```')
       .toString()
       .includes('class="code_selector-tag'),
@@ -61,7 +65,7 @@ test('remark-highlight.js', (t) => {
         hProperties: {dataFoo: 'bar', className: ['quux']}
       }
     })
-    .use(hljs)
+    .use(remarkHighlightjs)
     .runSync(remark().parse('```css\n```'))
 
   t.is(
@@ -77,8 +81,8 @@ test('remark-highlight.js', (t) => {
 
   t.is(
     remark()
-      .use(html)
-      .use(hljs)
+      .use(remarkHtml)
+      .use(remarkHighlightjs)
       .processSync('# Hello!\n\n```console\n$ webpack\n```')
       .toString(),
     '<h1>Hello!</h1>\n<pre><code class="hljs language-console"><span class="hljs-meta">$ </span><span class="bash">webpack</span></code></pre>\n',
