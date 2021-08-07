@@ -91,13 +91,13 @@ For a list of languages that you can pass to these options, see the
 
 ###### `options.include`
 
-If this option is defined (`Array`), this plugin will only highlight languages
-that *are* in this list.
+If this option is defined (`string[]`), this plugin will only highlight
+languages that *are* in this list.
 
 ###### `options.exclude`
 
-If this option is defined (`Array`), this plugin will only highlight languages
-that *are not* in this list.
+If this option is defined (`string[]`), this plugin will only highlight
+languages that *are not* in this list.
 
 ###### `options.prefix`
 

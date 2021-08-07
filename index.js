@@ -1,34 +1,58 @@
+/**
+ * @typedef {import('mdast').Root} Root
+ *
+ * @typedef Options
+ *   Configuration.
+ * @property {string[]} [include]
+ *   If this option is defined, this plugin will only highlight languages that
+ *   *are* in this list.
+ * @property {string[]} [exclude]
+ *   If this option is defined, this plugin will only highlight languages that
+ *   *are not* in this list.
+ * @property {string} [prefix]
+ *   If this option is defined, this plugin will use this prefix for classes
+ *   instead of `hljs-`.
+ */
+
 import {lowlight} from 'lowlight'
 import {visit} from 'unist-util-visit'
 
-export default function remarkHighlightjs({include, exclude, prefix} = {}) {
-  return (ast) => visit(ast, 'code', visitor)
+/**
+ * Plugin to enable, disable, and ignore messages.
+ *
+ * @type {import('unified').Plugin<[Options?]|void[], Root>}
+ */
+export default function remarkHighlightjs(options = {}) {
+  const {include, exclude, prefix} = options
 
-  function visitor(node) {
-    let {lang, data} = node
+  return (tree) => {
+    visit(tree, 'code', (node) => {
+      let {lang, data} = node
 
-    if (
-      !lang ||
-      (include && !include.includes(lang)) ||
-      (exclude && exclude.includes(lang))
-    ) {
-      return
-    }
+      if (
+        !lang ||
+        (include && !include.includes(lang)) ||
+        (exclude && exclude.includes(lang))
+      ) {
+        return
+      }
 
-    if (!data) {
-      data = {}
-      node.data = data
-    }
+      if (!data) {
+        data = {}
+        node.data = data
+      }
 
-    if (!data.hProperties) {
-      data.hProperties = {}
-    }
+      const props = /** @type {import('hast').Properties} */ (
+        data.hProperties || (data.hProperties = {})
+      )
 
-    data.hChildren = lowlight.highlight(lang, node.value, {prefix}).children
-    data.hProperties.className = [
-      'hljs',
-      ...(data.hProperties.className || []),
-      'language-' + lang
-    ]
+      data.hChildren = lowlight.highlight(lang, node.value, {prefix}).children
+
+      props.className = [
+        'hljs',
+        ...(Array.isArray(props.className) ? props.className : []),
+        'language-' + lang
+      ]
+    })
   }
 }

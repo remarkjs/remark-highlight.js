@@ -5,8 +5,11 @@ import {remark} from 'remark'
 import remarkHtml from 'remark-html'
 import remarkHighlightjs from '../index.js'
 
-const base = (file) =>
-  String(fs.readFileSync(path.join('test', 'fixtures', file)))
+/**
+ * @param {string} name
+ */
+const base = (name) =>
+  String(fs.readFileSync(path.join('test', 'fixtures', name)))
 
 test('remark-highlight.js', (t) => {
   t.is(
@@ -59,24 +62,23 @@ test('remark-highlight.js', (t) => {
     'should allow to change prefix'
   )
 
-  const tree = remark()
-    .use(() => (tree) => {
-      tree.children[0].data = {
-        hProperties: {dataFoo: 'bar', className: ['quux']}
-      }
-    })
-    .use(remarkHighlightjs)
-    .runSync(remark().parse('```css\n```'))
-
-  t.is(
-    tree.children[0].data.hProperties.dataFoo,
-    'bar',
-    'should not modify existing hProperties and classes (1)'
-  )
-  t.is(
-    tree.children[0].data.hProperties.className.includes('quux'),
-    true,
-    'should not modify existing hProperties and classes (2)'
+  t.deepEqual(
+    remark()
+      .use(() => (tree) => {
+        tree.children[0].data = {
+          hProperties: {dataFoo: 'bar', className: ['quux']}
+        }
+      })
+      .use(remarkHighlightjs)
+      .runSync(remark().parse('```css\n```')).children[0].data,
+    {
+      hProperties: {
+        dataFoo: 'bar',
+        className: ['hljs', 'quux', 'language-css']
+      },
+      hChildren: []
+    },
+    'should not modify existing hProperties and classes'
   )
 
   t.is(
