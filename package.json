@@ -44,7 +44,7 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/register": "^7.0.0",
     "babel-plugin-add-module-exports": "^1.0.0",
-    "nyc": "^15.0.0",
+    "c8": "^7.0.0",
     "prettier": "^2.0.0",
     "remark": "^13.0.0",
     "remark-cli": "^9.0.0",
@@ -57,8 +57,8 @@
     "prepublishOnly": "npm run compile",
     "format": "remark . -qfo && prettier . -w --loglevel warn && xo --fix",
     "compile": "babel src --out-dir dist --ignore src/**/__tests__",
-    "test-api": "node test/index.js",
-    "test-coverage": "nyc --reporter lcov npm run test-api",
+    "test-api": "node --conditions development test/index.js",
+    "test-coverage": "c8 --check-coverage --branches 100 --functions 100 --lines 100 --statements 100 --reporter lcov npm run test-api",
     "test": "npm run format && npm run compile && npm run test-coverage"
   },
   "browserslist": "> 2.5%, node 6",
@@ -68,17 +68,6 @@
     ],
     "plugins": [
       "add-module-exports"
-    ]
-  },
-  "nyc": {
-    "check-coverage": true,
-    "lines": 100,
-    "functions": 100,
-    "branches": 100
-  },
-  "ava": {
-    "require": [
-      "@babel/register"
     ]
   },
   "prettier": {
