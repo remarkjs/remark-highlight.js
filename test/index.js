@@ -81,7 +81,7 @@ test('remark-highlight.js', (t) => {
       .use(hljs)
       .processSync('# Hello!\n\n```console\n$ webpack\n```')
       .toString(),
-    '<h1>Hello!</h1>\n<pre><code class="hljs language-console"><span class="hljs-meta">$</span><span class="bash"> webpack</span></code></pre>\n',
+    '<h1>Hello!</h1>\n<pre><code class="hljs language-console"><span class="hljs-meta">$ </span><span class="bash">webpack</span></code></pre>\n',
     'should not throw on console syntax'
   )
 
