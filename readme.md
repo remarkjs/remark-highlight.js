@@ -24,6 +24,9 @@ No change is needed: it works exactly the same now as it did before!
 
 ## Install
 
+This package is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c):
+Node 12+ is needed to use it and it must be `import`ed instead of `require`d.
+
 [npm][]:
 
 ```sh
@@ -42,22 +45,23 @@ h1 {
 ~~~
 ```
 
-And our script, `example.js`, looks as follows:
+And our module, `example.js`, looks as follows:
 
 ```js
-const vfile = require('to-vfile')
-const report = require('vfile-reporter')
-const unified = require('unified')
-const markdown = require('remark-parse')
-const html = require('remark-html')
-const highlight = require('remark-highlight.js')
+import {readSync} from 'to-vfile'
+import {unified} from 'unified'
+import remarkParse from 'remark-parse'
+import remarkHighlightjs from 'remark-highlight.js'
+import remarkHtml from 'remark-html'
+
+const file = readSync('example.md')
 
 unified()
-  .use(markdown)
-  .use(highlight)
-  .use(html)
-  .process(vfile.readSync('example.md'), (err, file) => {
-    console.error(report(err || file))
+  .use(remarkParse)
+  .use(remarkHighlightjs)
+  .use(remarkHtml)
+  .process(file)
+  .then((file) => {
     console.log(String(file))
   })
 ```
@@ -65,7 +69,6 @@ unified()
 Now, running `node example` yields:
 
 ```html
-example.md: no issues found
 <pre><code class="hljs language-css"><span class="hljs-selector-tag">h1</span> {
   <span class="hljs-attribute">color</span>: red;
 }</code></pre>
@@ -73,7 +76,10 @@ example.md: no issues found
 
 ## API
 
-### `remark().use(highlight[, options])`
+This package exports no identifiers.
+The default export is `remarkHighlightjs`.
+
+### `unified().use(remarkHighlightjs[, options])`
 
 highlight code blocks with [highlight.js][hljs] (via
 [**lowlight**][lowlight]).
