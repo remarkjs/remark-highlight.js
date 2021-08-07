@@ -14,7 +14,7 @@
  *   instead of `hljs-`.
  */
 
-import {lowlight} from 'lowlight'
+import {lowlight} from 'lowlight/lib/all.js'
 import {visit} from 'unist-util-visit'
 
 /**
