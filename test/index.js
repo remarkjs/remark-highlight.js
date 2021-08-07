@@ -1,12 +1,12 @@
-const fs = require('fs')
-const path = require('path')
-const test = require('tape')
-const remark = require('remark')
-const html = require('remark-html')
-const hljs = require('../dist/index.js')
+import fs from 'fs'
+import path from 'path'
+import test from 'tape'
+import remark from 'remark'
+import html from 'remark-html'
+import hljs from '../index.js'
 
 const base = (file) =>
-  String(fs.readFileSync(path.join(__dirname, 'fixtures', file)))
+  String(fs.readFileSync(path.join('test', 'fixtures', file)))
 
 test('remark-highlight.js', (t) => {
   t.is(

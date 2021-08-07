@@ -1,7 +1,7 @@
-import low from 'lowlight'
+import lowlight from 'lowlight'
 import visit from 'unist-util-visit'
 
-export default function attacher({include, exclude, prefix} = {}) {
+export default function remarkHighlightjs({include, exclude, prefix} = {}) {
   return (ast) => visit(ast, 'code', visitor)
 
   function visitor(node) {
@@ -24,7 +24,7 @@ export default function attacher({include, exclude, prefix} = {}) {
       data.hProperties = {}
     }
 
-    data.hChildren = low.highlight(lang, node.value, {prefix}).value
+    data.hChildren = lowlight.highlight(lang, node.value, {prefix}).value
     data.hProperties.className = [
       'hljs',
       ...(data.hProperties.className || []),

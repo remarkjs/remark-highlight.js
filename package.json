@@ -28,22 +28,17 @@
     "Eugene Sharygin <eush77@gmail.com>",
     "Oleg Proskurin <regx@usul.su>"
   ],
-  "main": "dist/index.js",
-  "module": "src/index.js",
+  "sideEffects": false,
+  "type": "module",
+  "main": "index.js",
   "files": [
-    "dist",
-    "src/index.js"
+    "index.js"
   ],
   "dependencies": {
     "lowlight": "^1.2.0",
     "unist-util-visit": "^2.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.0.0",
-    "@babel/core": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
-    "@babel/register": "^7.0.0",
-    "babel-plugin-add-module-exports": "^1.0.0",
     "c8": "^7.0.0",
     "prettier": "^2.0.0",
     "remark": "^13.0.0",
@@ -54,21 +49,10 @@
     "xo": "^0.37.0"
   },
   "scripts": {
-    "prepublishOnly": "npm run compile",
     "format": "remark . -qfo && prettier . -w --loglevel warn && xo --fix",
-    "compile": "babel src --out-dir dist --ignore src/**/__tests__",
     "test-api": "node --conditions development test/index.js",
     "test-coverage": "c8 --check-coverage --branches 100 --functions 100 --lines 100 --statements 100 --reporter lcov npm run test-api",
-    "test": "npm run format && npm run compile && npm run test-coverage"
-  },
-  "browserslist": "> 2.5%, node 6",
-  "babel": {
-    "presets": [
-      "@babel/preset-env"
-    ],
-    "plugins": [
-      "add-module-exports"
-    ]
+    "test": "npm run format && npm run test-coverage"
   },
   "prettier": {
     "tabWidth": 2,
