@@ -4,6 +4,4 @@
 coverage/
 dist/
 node_modules/
-remark-highlight.js
-remark-highlight.min.js
 yarn.lock

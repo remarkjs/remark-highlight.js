@@ -1,6 +1,3 @@
 coverage
 dist
-remark-highlight.js
-remark-highlight.min.js
-*.json
 *.md
