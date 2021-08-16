@@ -1,6 +1,6 @@
 {
   "name": "remark-highlight.js",
-  "version": "7.0.0",
+  "version": "7.0.1",
   "description": "Legacy remark plugin to highlight code blocks with highlight.js — please use `rehype-highlight` instead",
   "license": "MIT",
   "keywords": [],
