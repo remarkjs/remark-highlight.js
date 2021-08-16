@@ -1,20 +1,9 @@
 {
   "name": "remark-highlight.js",
   "version": "7.0.0",
-  "description": "remark plugin to highlight code blocks with highlight.js",
+  "description": "Legacy remark plugin to highlight code blocks with highlight.js — please use `rehype-highlight` instead",
   "license": "MIT",
-  "keywords": [
-    "unified",
-    "remark",
-    "remark-plugin",
-    "plugin",
-    "mdast",
-    "markdown",
-    "highlight",
-    "syntax",
-    "highlight.js",
-    "lowlight"
-  ],
+  "keywords": [],
   "repository": "remarkjs/remark-highlight.js",
   "bugs": "https://github.com/remarkjs/remark-highlight.js/issues",
   "funding": {
